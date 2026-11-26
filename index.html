@@ -1,0 +1,1155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d18">
+  <meta name="description" content="A personal portfolio exploring journalism, AI-powered content creation, fitness technology, travel and an active lifestyle.">
+  <title>My Portfolio | Creativity, Technology & Active Living</title>
+
+  <style>
+    /* ==============================
+       1. GLOBAL STYLES
+    ============================== */
+
+    :root {
+      --bg: #090d18;
+      --bg-light: #101827;
+      --card: rgba(19, 29, 47, 0.82);
+      --blue: #3985ff;
+      --green: #b7ff5a;
+      --purple: #a879ff;
+      --text: #f5f7ff;
+      --muted: #a6b0c3;
+      --border: rgba(255,255,255,0.09);
+      --radius: 22px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 110px 0;
+      position: relative;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-heading {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: -1.5px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, var(--blue), var(--purple), var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 1rem;
+    }
+
+    /* ==============================
+       2. NAVIGATION
+    ============================== */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(9, 13, 24, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .nav-cta {
+      padding: 11px 20px;
+      background: var(--green);
+      color: #10150b !important;
+      border-radius: 30px;
+      font-weight: 800;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+
+    /* ==============================
+       3. INTRODUCTION / HERO
+    ============================== */
+
+    #intro {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 130px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 80% 30%, rgba(57,133,255,0.15), transparent 35%),
+        radial-gradient(ellipse at 15% 80%, rgba(168,121,255,0.12), transparent 30%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--green);
+      border: 1px solid rgba(183,255,90,0.25);
+      background: rgba(183,255,90,0.06);
+      padding: 9px 16px;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+
+    .hero-tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      line-height: 1.04;
+      letter-spacing: -3px;
+      font-weight: 900;
+      margin-bottom: 25px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 600px;
+      line-height: 1.85;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-weight: 800;
+      transition: 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #10150b;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: white;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(57,133,255,0.17);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 390px;
+    }
+
+    .visual-circle {
+      width: 290px;
+      height: 290px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--purple) 55%, var(--green));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 0 90px rgba(57,133,255,0.23);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .visual-inner {
+      width: 265px;
+      height: 265px;
+      background: var(--bg-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7rem;
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: #19243a;
+      border: 1px solid var(--border);
+      padding: 13px 17px;
+      border-radius: 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+    }
+
+    .badge-one {
+      top: 45px;
+      right: 0;
+    }
+
+    .badge-two {
+      bottom: 45px;
+      left: 0;
+    }
+
+    .badge-one span {
+      color: var(--green);
+    }
+
+    .badge-two span {
+      color: var(--blue);
+    }
+
+    /* ==============================
+       4. HOBBIES
+    ============================== */
+
+    #hobby {
+      background: var(--bg-light);
+    }
+
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .hobby-card {
+      background: linear-gradient(145deg, #192843, #111a2c);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 35px;
+      min-height: 350px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.35s ease;
+    }
+
+    .hobby-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(57,133,255,0.5);
+    }
+
+    .hobby-icon {
+      width: 70px;
+      height: 70px;
+      display: grid;
+      place-items: center;
+      background: rgba(57,133,255,0.13);
+      border-radius: 18px;
+      font-size: 2.1rem;
+      margin-bottom: 28px;
+    }
+
+    .hobby-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 15px;
+    }
+
+    .hobby-card p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .hobby-card::after {
+      content: "FIT TECH";
+      position: absolute;
+      bottom: -13px;
+      right: -8px;
+      font-size: 3.7rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.025);
+      letter-spacing: -2px;
+      pointer-events: none;
+    }
+
+    .hobby-details h3 {
+      font-size: 1.55rem;
+      margin-bottom: 15px;
+    }
+
+    .hobby-details > p {
+      color: var(--muted);
+      margin-bottom: 26px;
+      line-height: 1.8;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 17px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      color: #dfe7f5;
+      font-size: 0.95rem;
+    }
+
+    .check-icon {
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      background: rgba(183,255,90,0.1);
+      border-radius: 50%;
+      font-size: 0.8rem;
+    }
+
+    /* ==============================
+       5. INTERESTS
+    ============================== */
+
+    #interest {
+      background:
+        radial-gradient(ellipse at 90% 50%, rgba(168,121,255,0.08), transparent 35%);
+    }
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 48px;
+    }
+
+    .interest-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 27px;
+      min-height: 280px;
+      transition: 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interest-card:hover {
+      transform: translateY(-9px);
+      border-color: rgba(183,255,90,0.4);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.2);
+    }
+
+    .interest-number {
+      position: absolute;
+      right: 23px;
+      top: 18px;
+      color: rgba(255,255,255,0.12);
+      font-size: 2.5rem;
+      font-weight: 900;
+    }
+
+    .interest-icon {
+      font-size: 2.4rem;
+      margin-bottom: 25px;
+      display: block;
+    }
+
+    .interest-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .interest-card p {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .travel-card {
+      border-bottom: 3px solid var(--blue);
+    }
+
+    .hiking-card {
+      border-bottom: 3px solid var(--purple);
+    }
+
+    .exercise-card {
+      border-bottom: 3px solid var(--green);
+    }
+
+    /* ==============================
+       6. CONTACT
+    ============================== */
+
+    #contact {
+      background: var(--bg-light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 55px;
+      margin-top: 45px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.7rem;
+      margin-bottom: 15px;
+    }
+
+    .contact-info > p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 15px 17px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid var(--border);
+      color: #dce5f5;
+      transition: 0.3s;
+    }
+
+    .social-link:hover {
+      background: rgba(57,133,255,0.1);
+      border-color: var(--blue);
+    }
+
+    .social-link span:first-child {
+      font-size: 1.25rem;
+    }
+
+    .contact-form {
+      padding: 32px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 19px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #e5eaf4;
+      font-size: 0.88rem;
+      margin-bottom: 9px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.1);
+      outline: none;
+      background: #0c1423;
+      color: white;
+      border-radius: 11px;
+      padding: 14px 15px;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(57,133,255,0.1);
+    }
+
+    .form-group textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+    }
+
+    .form-message {
+      display: none;
+      color: var(--green);
+      margin-top: 17px;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* ==============================
+       7. FOOTER
+    ============================== */
+
+    footer {
+      padding: 27px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer span {
+      color: var(--green);
+    }
+
+    /* ==============================
+       8. ANIMATIONS
+    ============================== */
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==============================
+       9. RESPONSIVE DESIGN
+    ============================== */
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .hobby-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 350px;
+      }
+
+      .interest-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hobby-grid {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .section {
+        padding: 80px 0;
+      }
+
+      nav {
+        height: 68px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        flex-direction: column;
+        gap: 23px;
+        background: #101827;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 13vw, 4.2rem);
+        letter-spacing: -2px;
+      }
+
+      .hero-grid {
+        gap: 15px;
+      }
+
+      .visual-circle {
+        width: 240px;
+        height: 240px;
+      }
+
+      .visual-inner {
+        width: 218px;
+        height: 218px;
+        font-size: 5.5rem;
+      }
+
+      .badge-one {
+        right: -5px;
+      }
+
+      .badge-two {
+        left: -5px;
+      }
+
+      .interest-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .contact-form {
+        padding: 23px;
+      }
+
+      .section-heading {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <header>
+    <nav class="container">
+      <a href="#intro" class="logo">MY<span>SPACE.</span></a>
+
+      <button class="menu-toggle" id="menuToggle"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+              aria-controls="navLinks">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#intro">Home</a></li>
+        <li><a href="#hobby">Hobbies</a></li>
+        <li><a href="#interest">Interests</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Me ↗</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- SECTION 1: INTRODUCTION -->
+    <section class="section" id="intro">
+      <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+          <div class="hero-tag">PERSONAL PORTFOLIO</div>
+
+          <h1 class="hero-title">
+            Creativity,<br>
+            Technology &<br>
+            <span class="gradient-text">Active Living.</span>
+          </h1>
+
+          <p class="hero-description">
+            Hello! I am currently studying Journalism and Mass Communication,
+            and I am learning no-code content creation using Artificial
+            Intelligence (AI). I am passionate about the evolving world of
+            digital media, creative storytelling, and technology.
+
+            I enjoy exploring emerging AI tools and discovering innovative
+            ways to turn ideas into engaging digital experiences. My journey
+            combines creativity, communication, and a curiosity for learning
+            new skills.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#hobby" class="btn btn-primary">Explore My Hobbies ↗</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="visual-circle">
+            <div class="visual-inner">🚀</div>
+          </div>
+
+          <div class="floating-badge badge-one">
+            <span>✦</span> Creative Mind
+          </div>
+
+          <div class="floating-badge badge-two">
+            <span>●</span> Always Learning
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SECTION 2: HOBBIES -->
+    <section class="section" id="hobby">
+      <div class="container">
+
+        <div class="reveal">
+          <span class="section-label">01 / WHAT I ENJOY</span>
+          <h2 class="section-heading">
+            My <span class="gradient-text">Hobbies.</span>
+          </h2>
+          <p class="section-description">
+            I enjoy exploring ideas that combine technology, creativity,
+            and practical everyday experiences.
+          </p>
+        </div>
+
+        <div class="hobby-grid">
+
+          <div class="hobby-card reveal">
+            <div class="hobby-icon">🏋️</div>
+            <h3>Gym Application Development</h3>
+            <p>
+              One of my hobbies is exploring the development of gym-related
+              applications. I am interested in how technology can improve
+              the fitness experience by making workout planning, exercise
+              tracking, and progress monitoring easier and more organized.
+              I enjoy thinking about creative app concepts that could help
+              people manage their fitness journeys.
+            </p>
+          </div>
+
+          <div class="hobby-details reveal">
+            <h3>Where Fitness Meets Technology</h3>
+            <p>
+              Fitness applications can make everyday training more
+              structured and accessible. Some ideas I enjoy exploring
+              include:
+            </p>
+
+            <div class="feature-list">
+              <div class="feature-item">
+                <span class="check-icon">✓</span>
+                Workout tracking and exercise planning
+              </div>
+
+              <div class="feature-item">
+                <span class="check-icon">✓</span>
+                Fitness progress and performance monitoring
+              </div>
+
+              <div class="feature-item">
+                <span class="check-icon">✓</span>
+                Simple and user-friendly gym app concepts
+              </div>
+
+              <div class="feature-item">
+                <span class="check-icon">✓</span>
+                Technology-driven fitness management solutions
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 3: INTERESTS -->
+    <section class="section" id="interest">
+      <div class="container">
+
+        <div class="reveal">
+          <span class="section-label">02 / THINGS I LOVE</span>
+          <h2 class="section-heading">
+            My <span class="gradient-text">Interests.</span>
+          </h2>
+          <p class="section-description">
+            Beyond academics and technology, I enjoy exploring the world,
+            spending time outdoors, and maintaining an active lifestyle.
+          </p>
+        </div>
+
+        <div class="interest-grid">
+
+          <!-- TRAVELLING -->
+          <article class="interest-card travel-card reveal">
+            <span class="interest-number">01</span>
+            <span class="interest-icon">🌍</span>
+            <h3>Travelling</h3>
+            <p>
+              Travelling allows me to discover new destinations, experience
+              different cultures, and meet new people. I enjoy exploring
+              unfamiliar places because every journey offers an opportunity
+              to learn, experience something new, and create memories.
+            </p>
+          </article>
+
+          <!-- HIKING -->
+          <article class="interest-card hiking-card reveal">
+            <span class="interest-number">02</span>
+            <span class="interest-icon">⛰️</span>
+            <h3>Hiking</h3>
+            <p>
+              Hiking gives me an opportunity to connect with nature and
+              enjoy outdoor adventures. I appreciate exploring landscapes,
+              challenging myself physically, and finding peaceful moments
+              away from everyday routines.
+            </p>
+          </article>
+
+          <!-- EXERCISING -->
+          <article class="interest-card exercise-card reveal">
+            <span class="interest-number">03</span>
+            <span class="interest-icon">💪</span>
+            <h3>Exercising</h3>
+            <p>
+              Fitness is an important part of my lifestyle. I enjoy regular
+              exercise, building physical strength, and staying active.
+              Working out also helps me develop discipline, consistency,
+              and a positive approach towards personal growth.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 4: VISITOR CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+
+        <div class="reveal">
+          <span class="section-label">03 / LET'S CONNECT</span>
+          <h2 class="section-heading">
+            Get In <span class="gradient-text">Touch.</span>
+          </h2>
+          <p class="section-description">
+            Have an interesting idea, a creative project, or simply want
+            to connect? Send me a message!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- CONTACT INFORMATION -->
+          <div class="contact-info reveal">
+            <h3>Let's start a conversation.</h3>
+            <p>
+              I am always interested in connecting with people,
+              discovering new opportunities, and exchanging creative ideas.
+              Feel free to reach out.
+            </p>
+
+            <div class="social-links">
+
+              <a href="https://www.instagram.com/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="social-link">
+                <span>📸</span>
+                <span>Instagram – Add your profile</span>
+              </a>
+
+              <a href="https://www.linkedin.com/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="social-link">
+                <span>💼</span>
+                <span>LinkedIn – Add your profile</span>
+              </a>
+
+              <a href="#contact"
+                 class="social-link">
+                <span>✉️</span>
+                <span>Email – Add your email address</span>
+              </a>
+
+            </div>
+          </div>
+
+
+          <!-- CONTACT FORM -->
+          <form class="contact-form reveal" id="contactForm">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  autocomplete="name"
+                  required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  autocomplete="email"
+                  required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="What is this about?"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Write your message here..."
+                required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Send Message ↗
+            </button>
+
+            <p class="form-message" id="formMessage" role="status"
+               aria-live="polite">
+            </p>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>
+        Designed with <span>♥</span> | My Personal Portfolio |
+        Keep Exploring. Keep Creating.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    // MOBILE NAVIGATION MENU
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("active");
+
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // CLOSE MENU AFTER CLICKING A NAVIGATION LINK
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // SCROLL REVEAL ANIMATION
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
+
+    // FRONTEND CONTACT FORM DEMO
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      const visitorName = document.getElementById("name").value.trim();
+
+      formMessage.textContent =
+        `Thank you, ${visitorName}! Your demo submission was successful. This form is not connected to an email server.`;
+
+      formMessage.style.display = "block";
+
+      contactForm.reset();
+    });
+
+  </script>
+
+</body>
+</html>
